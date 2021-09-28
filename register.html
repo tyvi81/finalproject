@@ -3,15 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Register Page</title>
+    <title>Register a login</title>
 
     <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
     <div class="card-title">
-        <h1 class="login-title">Register Page</h1>
-        <h2 class="login-desc">Create a username and password below</h2>
+        <h1 class="login-title">Register</h1>
+        <h2 class="login-desc">Create a username and password </h2>
         <div class="missing"></div>
     </div>
     <div class="login-card">
@@ -29,15 +29,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <script type=module src="register-backend.js"></script>
 
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        
         <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
     
-        <!-- TODO: Add SDKs for Firebase products that you want to use
-         https://firebase.google.com/docs/web/setup#available-libraries -->
+       
     
         <script>
-            // Your web app's Firebase configuration
+
             var firebaseConfig = {
                 apiKey: "AIzaSyBAx_e76ctxOTtZqPVAnn2BAY3wTUFXIdU",
                 authDomain: "snake-game-33967.firebaseapp.com",
@@ -46,7 +45,8 @@
                 messagingSenderId: "979224714309",
                 appId: "1:979224714309:web:3ea964d5b6fc26fcd7172c"
             };
-            // Initialize Firebase
+            
+            
             firebase.initializeApp(firebaseConfig);
             var db = firebase.firestore();
             db.settings({ timestampsInSnapshots: true });

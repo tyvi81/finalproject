@@ -1,23 +1,23 @@
 html {
-    background-color: black;
+    background-color: rosybrown;
 }
 
 .navbar {
-    background-color: white;
+    background-color: blueviolet;
 }
 
 .navbar-item {
-    color:black;
+    color:greenyellow;
     font-weight: bold;
 }
 
 #btn {
-    background-color: white;
+    background-color: palegreen;
     color: black;
     transition: .1s linear;
 }
 
 #btn:hover {
-    background-color: lightgray;
+    background-color: turquoise;
     transition: .1s linear;
 }

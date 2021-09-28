@@ -7,11 +7,12 @@ export const handlePage = function () {
 }
 
 export const handleLoginButton = function () {
-    
+    let obj;
+    let $miss = $('.missing');
     let $user = $('.username-input');
     let $pass = $('.password-input');
-    let $miss = $('.missing');
-    let obj;
+    
+    
     $missing.empty();
     if ($user.val() == null || $user.val() == "") {
         $miss.append('<div>Please fill out your username');
