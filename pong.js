@@ -3,15 +3,6 @@ const canvas = document.getElementById("pong");
 
 const ctx = canvas.getContext('2d');
 
-let hitSound = new Audio();
-let wallSound = new Audio();
-let userScoreSound = new Audio();
-let comScoreSound = new Audio();
-
-hitSound.src = "pong/sounds/hit.mp3";
-wallSound.src = "pong/sounds/wall.mp3";
-comScoreSound.src = "pong/sounds/comScore.mp3";
-userScoreSound.src = "pong/sounds/userScore.mp3";
 
 // Ball
 const ball = {
