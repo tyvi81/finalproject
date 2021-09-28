@@ -1,13 +1,13 @@
 
-const canvas = document.getElementById("pong");
+const canv = document.getElementById("pong");
 
-const ctx = canvas.getContext('2d');
+const colorControl = canv.getContext('2d');
 
 
-// Ball
-const ball = {
-    x : canvas.width/2,
-    y : canvas.height/2,
+
+const pongball = {
+    x : canv.width/2,
+    y : canv.height/2,
     radius : 10,
     velocityX : 5,
     velocityY : 5,
@@ -15,29 +15,29 @@ const ball = {
     color : "WHITE"
 }
 
-// User Paddle
-const userPaddle = {
-    x : 0, // left side of canvas
-    y : (canvas.height - 100)/2, // -100 the height of paddle
+
+const controlPaddle = {
+    x : 0, 
+    y : (canv.height - 100)/2, 
     width : 10,
     height : 100,
     score : 0,
     color : "WHITE"
 }
 
-// COM Paddle
-const comPaddle = {
-    x : canvas.width - 10, // - width of paddle
-    y : (canvas.height - 100)/2, // -100 the height of paddle
+
+const computerPaddle = {
+    x : canv.width - 10, 
+    y : (canv.height - 100)/2, 
     width : 10,
     height : 100,
     score : 0,
     color : "WHITE"
 }
 
-// NET
-const net = {
-    x : (canvas.width - 2)/2,
+
+const goal = {
+    x : (canv.width - 2)/2,
     y : 0,
     height : 10,
     width : 2,
@@ -45,47 +45,47 @@ const net = {
 }
 
 
-function drawRectangle(x, y, w, h, color){
-    ctx.fillStyle = color;
-    ctx.fillRect(x, y, w, h);
+function rectancle(x, y, w, h, color){
+    colorControl.fillStyle = color;
+    colorControl.fillRect(x, y, w, h);
 }
 
-function drawCircle(x, y, r, color){
-    ctx.fillStyle = color;
-    ctx.beginPath();
-    ctx.arc(x,y,r,0,Math.PI*2,true);
-    ctx.closePath();
-    ctx.fill();
+function circle(x, y, r, color){
+    colorControl.fillStyle = color;
+    colorControl.beginPath();
+    colorControl.arc(x,y,r,0,Math.PI*2,true);
+    colorControl.closePath();
+    colorControl.fill();
 }
 
-canvas.addEventListener("mousemove", getMousePosition);
+canv.addEventListener("mousemove", getMousePosition);
 
 function getMousePosition(evt){
-    let rect = canvas.getBoundingClientRect();
+    let rect = canv.getBoundingClientRect();
     
-    userPaddle.y = evt.clientY - rect.top - userPaddle.height/2;
+    controlPaddle.y = evt.clientY - rect.top - controlPaddle.height/2;
 }
 
-function resetBall(){
-    ball.x = canvas.width/2;
-    ball.y = canvas.height/2;
-    ball.velocityX = -ball.velocityX;
-    ball.speed = 7;
+function resetPongBall(){
+    pongball.x = canv.width/2;
+    pongball.y = canv.height/2;
+    pongball.velocityX = -pongball.velocityX;
+    pongball.speed = 7;
 }
 
-function drawNet(){
-    for(let i = 0; i <= canvas.height; i+=15){
-        drawRectangle(net.x, net.y + i, net.width, net.height, net.color);
+function drawGoal(){
+    for(let i = 0; i <= canv.height; i+=15){
+        rectancle(goal.x, goal.y + i, goal.width, goal.height, goal.color);
     }
 }
 
-function drawText(text,x,y){
-    ctx.fillStyle = "#FFF";
-    ctx.font = "75px fantasy";
-    ctx.fillText(text, x, y);
+function text(text,x,y){
+    colorControl.fillStyle = "#FFF";
+    colorControl.font = "75px fantasy";
+    colorControl.fillText(text, x, y);
 }
 
-function collisionDetection(b,p){
+function collide(b,p){
     p.top = p.y;
     p.bottom = p.y + p.height;
     p.left = p.x;
@@ -102,66 +102,66 @@ function collisionDetection(b,p){
 
 function update(){
     
-    if( ball.x - ball.radius < 0 ){
-        comPaddle.score++;
+    if( pongball.x - pongball.radius < 0 ){
+        computerPaddle.score++;
         
-        resetBall();
-    }else if( ball.x + ball.radius > canvas.width){
-        userPaddle.score++;
+        resetPongBall();
+    }else if( pongball.x + pongball.radius > canv.width){
+        controlPaddle.score++;
         
-        resetBall();
+        resetPongBall();
     }
     
-    ball.x += ball.velocityX;
-    ball.y += ball.velocityY;
+    pongball.x += pongball.velocityX;
+    pongball.y += pongball.velocityY;
     
-    comPaddle.y += ((ball.y - (comPaddle.y + comPaddle.height/2)))*0.1;
+    computerPaddle.y += ((pongball.y - (computerPaddle.y + computerPaddle.height/2)))*0.1;
     
-    if(ball.y - ball.radius < 0 || ball.y + ball.radius > canvas.height){
-        ball.velocityY = -ball.velocityY;
+    if(pongball.y - pongball.radius < 0 || pongball.y + pongball.radius > canv.height){
+        pongball.velocityY = -pongball.velocityY;
         
     }
     
-    let player = (ball.x + ball.radius < canvas.width/2) ? userPaddle : comPaddle;
+    let person = (pongball.x + pongball.radius < canv.width/2) ? controlPaddle : computerPaddle;
     
-    if(collisionDetection(ball,player)){
+    if(collide(pongball,person)){
         
-        let collidePoint = (ball.y - (player.y + player.height/2));
+        let collisionPt = (pongball.y - (person.y + person.height/2));
 
-        collidePoint = collidePoint / (player.height/2);
+        collisionPt = collisionPt / (person.height/2);
         
-        let angleRad = (Math.PI/4) * collidePoint;
+        let angle = (Math.PI/4) * collisionPt;
         
-        let direction = (ball.x + ball.radius < canvas.width/2) ? 1 : -1;
-        ball.velocityX = direction * ball.speed * Math.cos(angleRad);
-        ball.velocityY = ball.speed * Math.sin(angleRad);
+        let movement = (pongball.x + pongball.radius < canv.width/2) ? 1 : -1;
+        pongball.velocityX = movement * pongball.speed * Math.cos(angle);
+        pongball.velocityY = pongball.speed * Math.sin(angle);
         
-        ball.speed += 0.1;
+        pongball.speed += 0.1;
     }
 }
 
-// render function, the function that does al the drawing
+
 function render(){
     
-    drawRectangle(0, 0, canvas.width, canvas.height, "#000");
+    rectancle(0, 0, canv.width, canv.height, "#000");
     
-    drawText(userPaddle.score,canvas.width/4,canvas.height/5);
+    text(controlPaddle.score,canv.width/4,canv.height/5);
     
-    drawText(comPaddle.score,3*canvas.width/4,canvas.height/5);
+    text(computerPaddle.score,3*canv.width/4,canv.height/5);
     
-    drawNet();
+    drawGoal();
     
-    drawRectangle(userPaddle.x, userPaddle.y, userPaddle.width, userPaddle.height, userPaddle.color);
+    rectancle(controlPaddle.x, controlPaddle.y, controlPaddle.width, controlPaddle.height, controlPaddle.color);
     
-    drawRectangle(comPaddle.x, comPaddle.y, comPaddle.width, comPaddle.height, comPaddle.color);
+    rectancle(computerPaddle.x, computerPaddle.y, computerPaddle.width, computerPaddle.height, computerPaddle.color);
     
-    drawCircle(ball.x, ball.y, ball.radius, ball.color);
+    circle(pongball.x, pongball.y, pongball.radius, pongball.color);
 }
 function game(){
     update();
     render();
 }
 
-let framePerSecond = 50;
+let frames = 45;
 
-let loop = setInterval(game,1000/framePerSecond);
+let run = setInterval(game,1000/frames);

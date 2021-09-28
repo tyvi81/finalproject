@@ -1,30 +1,34 @@
 export const handlePage = function () {
+
     let $root = $('#root');
+
     $root.on('click', '.login-button', handleLoginButton);
+
 }
 
 export const handleLoginButton = function () {
-    let $username = $('.username-input');
-    let $password = $('.password-input');
-    let $missing = $('.missing');
-    let object;
+    
+    let $user = $('.username-input');
+    let $pass = $('.password-input');
+    let $miss = $('.missing');
+    let obj;
     $missing.empty();
-    if ($username.val() == null || $username.val() == "") {
-        $missing.append('<div>Please fill out your username');
-    } else if ($password.val() == null || $password.val() == "") {
-        $missing.append('<div>Please fill out your password</div>');
+    if ($user.val() == null || $user.val() == "") {
+        $miss.append('<div>Please fill out your username');
+    } else if ($pass.val() == null || $pass.val() == "") {
+        $miss.append('<div>Please fill out your password</div>');
     } else {
-        db.collection("users").where("username", "==", $username.val()).get().then((snapshot) => {
+        db.collection("users").where("username", "==", $user.val()).get().then((snapshot) => {
             snapshot.docs.forEach((doc) => {
-                object = (doc.data());
+                obj = (doc.data());
             })
-            if (object == null) {
+            if (obj == null) {
                 $missing.append(`<div>User does not exist</div>`);
-            } else if (object.password != $password.val()) {
-                    $missing.append(`<div>Password is incorrect</div>`);
+            } else if (obj.pass != $pass.val()) {
+                    $miss.append(`<div>Password is incorrect</div>`);
             } else {
-                localStorage.setItem("username", $username.val());
-                localStorage.setItem("score", object.highscore);
+                localStorage.setItem("username", $user.val());
+                localStorage.setItem("score", obj.highscore);
                 window.location = "./"
             }
         });
