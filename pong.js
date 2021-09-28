@@ -104,11 +104,11 @@ function update(){
     
     if( ball.x - ball.radius < 0 ){
         comPaddle.score++;
-        comScoreSound.play();
+        
         resetBall();
     }else if( ball.x + ball.radius > canvas.width){
         userPaddle.score++;
-        userScoreSound.play();
+        
         resetBall();
     }
     
@@ -119,13 +119,13 @@ function update(){
     
     if(ball.y - ball.radius < 0 || ball.y + ball.radius > canvas.height){
         ball.velocityY = -ball.velocityY;
-        wallSound.play();
+        
     }
     
     let player = (ball.x + ball.radius < canvas.width/2) ? userPaddle : comPaddle;
     
     if(collisionDetection(ball,player)){
-        hitSound.play();
+        
         let collidePoint = (ball.y - (player.y + player.height/2));
 
         collidePoint = collidePoint / (player.height/2);
