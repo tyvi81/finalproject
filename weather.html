@@ -20,18 +20,47 @@
 <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <p class="navbar-item">Weather</p>
+
+            <i class="fas fa-spa fa-5x"></i>
+            <a class="navbar-item" href="../index.html">
+                <h1 class="title_blackjack">Blackjack 426</h1>
+            </a>
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
         </div>
 
-        <div id="navt" class="navbar-menu">
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a target="_self" href="../nba_table/index.html" class="navbar-item">
+                    NBA Standings
+                </a>
+
+                <a  class="navbar-item">
+                    Weather
+                </a>
+
+                <a target="_self" href="../memes/index.html" class="navbar-item">
+                    Memes
+                </a>
+
+            </div>
+            <div class="navbar-end">
+            </div>
+
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a href="pong.html" id="btn" class="button is-primary"> Click to play pong!</a>
-                        <a href="joke.html" id="btn" class="button is-light"> 
-                            <strong>Click here for funny jokes!</strong>
+                        <a target="_self" href="../Firebase_Login/signup.html" class="button is-dark">
+                            <strong>Sign up</strong>
                         </a>
-                        
+                        <a target="_self" href="../Firebase_Login/login.html" class="button is-light">
+                            Log in
+                        </a>
                     </div>
                 </div>
             </div>
@@ -40,19 +69,19 @@
 
     <section class="section container is-max-desktop">
         <div class="column">
-            <h1 class="title">Enter Coordinates</h1>
+            <h1 class="title">Enter Coordinates for Weather</h1>
             <form>
                 <div class="field">
                     <label class="label">Latitude</label>
                     <div class="control">
-                        <input class="input" id="latitude" type="text" placeholder="45.98"
+                        <input class="input" id="latitude" type="text" placeholder="35.9132"
                             name="username">
                     </div>
                 </div>
                 <div class="field">
                     <label class="label">Longitude</label>
                     <div class="control">
-                        <input class="input" id="longitude" type="text" placeholder="63.67">
+                        <input class="input" id="longitude" type="text" placeholder="79.0558">
                     </div>
                 </div>
     
@@ -63,7 +92,7 @@
                         <span class="icon is-small">
                             <i class="fas fa-check"></i>
                         </span>
-                        <span>Enter</span>
+                        <span>Submit</span>
                     </button>
                 </div>
     
