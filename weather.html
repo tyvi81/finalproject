@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.2/css/bulma.css" />
+    <link rel="stylesheet" href="custom_style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Shrikhand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/sgt6mtz.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="weather.js" type="module"></script>
+
+    <title>Weather</title>
+</head>
+
+<body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+
+            <i class="fas fa-spa fa-5x"></i>
+            <a class="navbar-item" href="../index.html">
+                <h1 class="title_blackjack">Blackjack 426</h1>
+            </a>
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a target="_self" href="../nba_table/index.html" class="navbar-item">
+                    NBA Standings
+                </a>
+
+                <a  class="navbar-item">
+                    Weather
+                </a>
+
+                <a target="_self" href="../memes/index.html" class="navbar-item">
+                    Memes
+                </a>
+
+            </div>
+            <div class="navbar-end">
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a target="_self" href="../Firebase_Login/signup.html" class="button is-dark">
+                            <strong>Sign up</strong>
+                        </a>
+                        <a target="_self" href="../Firebase_Login/login.html" class="button is-light">
+                            Log in
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section container is-max-desktop">
+        <div class="column">
+            <h1 class="title">Enter Coordinates for Weather</h1>
+            <form>
+                <div class="field">
+                    <label class="label">Latitude</label>
+                    <div class="control">
+                        <input class="input" id="latitude" type="text" placeholder="35.9132"
+                            name="username">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Longitude</label>
+                    <div class="control">
+                        <input class="input" id="longitude" type="text" placeholder="79.0558">
+                    </div>
+                </div>
+    
+    
+                <div class="field">                 
+                    
+                    <button id="submitCoord" class="button is-dark">
+                        <span class="icon is-small">
+                            <i class="fas fa-check"></i>
+                        </span>
+                        <span>Submit</span>
+                    </button>
+                </div>
+    
+            </form>
+        </div>
+        <div id = "root" class="">
+
+        </div>
+        </div>
+        </div>
+    </section>
+</body>
+
+</html>
