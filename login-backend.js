@@ -29,9 +29,11 @@ export const handleLoginButton = function () {
                     $miss.append(`<div>Password is incorrect</div>`);
             } else {
                 localStorage.setItem("username", $user.val());
-                localStorage.setItem("score", obj.highscore);
-                window.location = "./"
+                
+                window.location = "index.html";
+
             }
+
         });
     }
 

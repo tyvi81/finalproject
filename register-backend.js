@@ -28,13 +28,12 @@ export const handleRegisterButton = function () {
                 db.collection("users").doc($user.val()).set({
                     user: $user.val(),
                     pass: $pass.val(),
-                    highscore: 0
+                    
 
                 }).then(() => {
 
                     localStorage.setItem("username", $user.val());
-                    localStorage.setItem("score", 0);
-                    window.location = "./"
+                    window.location = "index.html"
                 })
             }
         });
