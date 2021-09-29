@@ -29,7 +29,7 @@ export const handleLoginButton = function () {
                     $miss.append(`<div>Password is incorrect</div>`);
             } else {
                 localStorage.setItem("username", $user.val());
-                
+                $miss.append('<div> SUCCESS you have logged in</div>');
                 window.location = "index.html";
 
             }
