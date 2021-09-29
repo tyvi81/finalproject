@@ -19,7 +19,7 @@ export const handleRegisterButton = function () {
     } else if ($pass.val() == null || $pass.val() == "") {
         $miss.append('<div>Please fill out your password</div>');
     } else {
-        analytics.collection("users").doc($user.val()).get().then((snapshot) => {
+        db.collection("users").doc($user.val()).get().then((snapshot) => {
             if (snapshot.exists) {
 
                 $miss.append('<div>This username is already taken</div>');

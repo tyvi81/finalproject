@@ -24,7 +24,7 @@ export const handleLoginButton = function () {
                 obj = (doc.data());
             })
             if (obj == null) {
-                $missing.append(`<div>User does not exist</div>`);
+                $miss.append(`<div>User does not exist</div>`);
             } else if (obj.pass != $pass.val()) {
                     $miss.append(`<div>Password is incorrect</div>`);
             } else {
