@@ -13,7 +13,7 @@ export const handleLoginButton = function () {
     let $pass = $('.password-input');
     
     
-    $missing.empty();
+    $miss.empty();
     if ($user.val() == null || $user.val() == "") {
         $miss.append('<div>Please fill out your username');
     } else if ($pass.val() == null || $pass.val() == "") {

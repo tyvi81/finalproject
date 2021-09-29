@@ -34,7 +34,7 @@ export const handleRegisterButton = function () {
 
                     localStorage.setItem("username", $user.val());
                     $miss.append('<div> SUCCESS you have created a new login</div>');
-                    window.location = "./"
+                    window.location = "index.html"
                 })
             }
         });
