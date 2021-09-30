@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title>426 Final</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="loginstyle.css">
 
         <!-- Include links to CSS stylesheets below -->
         <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" />
@@ -15,10 +15,11 @@
         <!-- The core Firebase JS SDK is always required and must be listed first -->
         <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js"></script>
-        <script type="module">
+        <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-analytics.js"></script>
+        
+        <script>
             // Import the functions you need from the SDKs you need
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js";
-            import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-analytics.js";
+           
             // TODO: Add SDKs for Firebase products that you want to use
             // https://firebase.google.com/docs/web/setup#available-libraries
     
@@ -35,8 +36,8 @@
             };
     
             // Initialize Firebase
-            const app = initializeApp(firebaseConfig);
-            const analytics = getAnalytics(app);
+            firebase.initializeApp(firebaseConfig);
+          firebase.analytics();
         </script>
     
                 <script src="node_modules/jquery/dist/jquery.js"></script>
@@ -47,9 +48,9 @@
     <body>
       <div id = "nav" class = "navigation" hidden = "false">
         <a class="active" href="index.html">Home</a>
-        <a href="find.html">Discover</a>
-        <a href="game.html">Play</a>
-        <a href="wiki.html">Wikipedia</a>
+        <a href="weather.html">Discover</a>
+        <a href="pong.html">Play</a>
+        <a href="joke.html">Wikipedia</a>
 
         <section id = "whenSignedIn" hidden = "true">
           <button id="btnLogout" class="logBtn">Log out</button>
@@ -70,25 +71,32 @@
           </div>
         </section>
         </div>
-      <div class = "content">
-        <h1>League Search</h1>
-        <h3>Search keywords such as a legaue or nation to find results from a database with over 800 leagues!</h3>
-        <input id="leagueSearch" placeholder='Try "Premier" or "Armenia"'>
-        <button id="leagueButton">Search</button> 
-        <p id = "error"></p>
-        <p id = "resultNum"></p>
-        
-        
-      </div>
-      <div>
-        <table id = "leagueOutput">
-
-        </table>
-        
-      </div>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <p class="navbar-item">Login</p>
+            </div>
+    
+    
+            <div id="navt" class="navbar-menu">
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <a href="login.html" id="btn" class="button is-primary"> Click here to login!</a>
+                            <a href="pong.html" id="btn" class="button is-primary"> Click here to play pong!</a>
+                            <a href="weather.html" id="btn" class="button is-primary"> Click here for the weather!</a>
+                            <a href="joke.html" id="btn" class="button is-light">
+                                <strong>Click here for jokes!</strong>
+                            </a>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    
 
 
       <script src="app.js"></script>
-        <script src="footy.js"></script>
+        
     </body>
 </html>
