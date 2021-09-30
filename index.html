@@ -1,102 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./node_modules/bulma/css/bulma.min.css">
+    <link rel="stylesheet" href="loginstyle.css">
 
-        <title>426 Final</title>
-        <link rel="stylesheet" href="loginstyle.css">
+     <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-analytics.js"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+  
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
 
-        <!-- Include links to CSS stylesheets below -->
-        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" />
-        <link rel="stylesheet" href="style.css" /> -->
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyALRKP-1wqtUDbPq0RB37ofTZ7flZFG6aE",
+            authDomain: "finalprject-8feb3.firebaseapp.com",
+            projectId: "finalprject-8feb3",
+            storageBucket: "finalprject-8feb3.appspot.com",
+            messagingSenderId: "543310826444",
+            appId: "1:543310826444:web:f3cefb36f927b05cd06b69",
+            measurementId: "G-1BGZ20XNKW"
+        };
 
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
-        <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-analytics.js"></script>
-        
-        <script>
-            // Import the functions you need from the SDKs you need
-           
-            // TODO: Add SDKs for Firebase products that you want to use
-            // https://firebase.google.com/docs/web/setup#available-libraries
-    
-            // Your web app's Firebase configuration
-            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-            const firebaseConfig = {
-                apiKey: "AIzaSyALRKP-1wqtUDbPq0RB37ofTZ7flZFG6aE",
-                authDomain: "finalprject-8feb3.firebaseapp.com",
-                projectId: "finalprject-8feb3",
-                storageBucket: "finalprject-8feb3.appspot.com",
-                messagingSenderId: "543310826444",
-                appId: "1:543310826444:web:f3cefb36f927b05cd06b69",
-                measurementId: "G-1BGZ20XNKW"
-            };
-    
-            // Initialize Firebase
-            firebase.initializeApp(firebaseConfig);
-          firebase.analytics();
-        </script>
-    
-                <script src="node_modules/jquery/dist/jquery.js"></script>
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+            var db = firebase.firestore();
+            db.settings({ timestampsInSnapshots: true });
+    </script>
+    <script>
 
-      
-    </head>
 
-    <body>
-      <div id = "nav" class = "navigation" hidden = "false">
-        <a class="active" href="index.html">Home</a>
-        <a href="weather.html">Discover</a>
-        <a href="pong.html">Play</a>
-        <a href="joke.html">Wikipedia</a>
+    </script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
 
-        <section id = "whenSignedIn" hidden = "true">
-          <button id="btnLogout" class="logBtn">Log out</button>
-        </section>
-      </div>
-        <div>
-        <section id = "whenSignedOut" hidden = "false">
-          <h1 id = "loginTitle">Log in or Sign up</h1>
-          <!-- <p id = "loginDescription">Once logged in, you can explore the features of the website.</p> -->
-          <input id="txtEmail" class="txt" type="email" placeholder="Email">
-          <input id="txtPassword" class="txt" type="password" placeholder="Password">
-          <div> 
-            <button id="btnLogin"class="logBtn">Log in</button>
-            <button id="btnSignUp" class="logBtn">Sign up</button>
-          </div>
-          <div> 
-            <p id="err"></p>
-          </div>
-        </section>
+    <title>Login</title>
+</head>
+
+<body>
+
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <p class="navbar-item">Login</p>
         </div>
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-                <p class="navbar-item">Login</p>
-            </div>
-    
-    
-            <div id="navt" class="navbar-menu">
-                <div class="navbar-end">
-                    <div class="navbar-item">
-                        <div class="buttons">
-                            <a href="login.html" id="btn" class="button is-primary"> Click here to login!</a>
-                            <a href="pong.html" id="btn" class="button is-primary"> Click here to play pong!</a>
-                            <a href="weather.html" id="btn" class="button is-primary"> Click here for the weather!</a>
-                            <a href="joke.html" id="btn" class="button is-light">
-                                <strong>Click here for jokes!</strong>
-                            </a>
-    
-                        </div>
+
+
+        <div id="navt" class="navbar-menu">
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a href="login.html" id="btn" class="button is-primary"> Click here to login!</a>
+                        <a href="pong.html" id="btn" class="button is-primary"> Click here to play pong!</a>
+                        <a href="weather.html" id="btn" class="button is-primary"> Click here for the weather!</a>
+                        <a href="joke.html" id="btn" class="button is-light">
+                            <strong>Click here for jokes!</strong>
+                        </a>
+
                     </div>
                 </div>
             </div>
-        </nav>
-    
+        </div>
+    </nav>
 
 
-      <script src="app.js"></script>
-        
-    </body>
+
+</body>
+
 </html>
