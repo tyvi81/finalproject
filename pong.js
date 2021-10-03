@@ -9,9 +9,9 @@ const pongball = {
     x : canv.width/2,
     y : canv.height/2,
     radius : 10,
-    velocityX : 5,
-    velocityY : 5,
-    speed : 7,
+    velocityX : 8,
+    velocityY : 8,
+    speed : 6,
     color : "RED"
 }
 
@@ -25,6 +25,13 @@ const controlPaddle = {
     color : "RED"
 }
 
+const goal = {
+    x : (canv.width - 2)/2,
+    y : 0,
+    height : 10,
+    width : 2,
+    color : "RED"
+}
 
 const computerPaddle = {
     x : canv.width - 10, 
@@ -36,13 +43,7 @@ const computerPaddle = {
 }
 
 
-const goal = {
-    x : (canv.width - 2)/2,
-    y : 0,
-    height : 10,
-    width : 2,
-    color : "RED"
-}
+
 
 
 function rectancle(x, y, w, h, color){
@@ -74,8 +75,8 @@ function resetPongBall(){
 }
 
 function drawGoal(){
-    for(let i = 0; i <= canv.height; i+=15){
-        rectancle(goal.x, goal.y + i, goal.width, goal.height, goal.color);
+    for(let j = 0; j <= canv.height; j+=15){
+        rectancle(goal.x, goal.y + j, goal.width, goal.height, goal.color);
     }
 }
 
@@ -85,18 +86,18 @@ function text(text,x,y){
     colorControl.fillText(text, x, y);
 }
 
-function collide(b,p){
+function collide(c,p){
     p.top = p.y;
     p.bottom = p.y + p.height;
     p.left = p.x;
     p.right = p.x + p.width;
     
-    b.top = b.y - b.radius;
-    b.bottom = b.y + b.radius;
-    b.left = b.x - b.radius;
-    b.right = b.x + b.radius;
+    c.top = c.y - c.radius;
+    c.bottom = c.y + c.radius;
+    c.left = c.x - c.radius;
+    c.right = c.x + c.radius;
     
-    return p.left < b.right && p.top < b.bottom && p.right > b.left && p.bottom > b.top;
+    return p.left < c.right && p.top < c.bottom && p.right > c.left && p.bottom > c.top;
 }
 
 
@@ -157,6 +158,7 @@ function render(){
     
     circle(pongball.x, pongball.y, pongball.radius, pongball.color);
 }
+
 function game(){
     update();
     render();
