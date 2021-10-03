@@ -13,7 +13,7 @@ const generateweather = async function (event) {
         url: 'https://weatherbit-v1-mashape.p.rapidapi.com/current',
         params: {lon: long, lat: lat, units: 'imperial', lang: 'en'},
         headers: {
-          'x-rapidapi-key': '36aa2a1ac6msh0df9f4e9860a347p12561bjsn88032da9b9aa',
+          'x-rapidapi-key': '2800d53380msh8f72c6375618846p12e496jsn98db37572e60',
           'x-rapidapi-host': 'weatherbit-v1-mashape.p.rapidapi.com'
         }
       
