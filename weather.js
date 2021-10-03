@@ -5,13 +5,13 @@ const generateweather = async function (event) {
     var rootImg = $("#root");
     rootImg.empty();
 
-    console.log("test");
-    var latitude = "" + $("#latitude").val();
-    var longitude =  "" +document.getElementById("longitude").value;
+    
+    var lat = "" + $("#latitude").val();
+    var long =  "" +document.getElementById("longitude").value;
     const result = await axios({
         method: 'GET',
         url: 'https://weatherbit-v1-mashape.p.rapidapi.com/current',
-        params: {lon: longitude, latitude: latitude, units: 'imperial', lang: 'en'},
+        params: {lon: long, lat: lat, units: 'imperial', lang: 'en'},
         headers: {
           'x-rapidapi-key': '36aa2a1ac6msh0df9f4e9860a347p12561bjsn88032da9b9aa',
           'x-rapidapi-host': 'weatherbit-v1-mashape.p.rapidapi.com'
@@ -55,7 +55,7 @@ const generateweather = async function (event) {
         <td>${array[0].weather.description}</td>
       </tr>
       <tr>
-        <td>Humidity Percentage</td>
+        <td>Humidity%</td>
         <td></td>
         <td></td>
         <td>${array[0].rh}</td>
