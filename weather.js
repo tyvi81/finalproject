@@ -5,7 +5,7 @@ const generateweather = async function (event) {
     var rootImg = $("#root");
     rootImg.empty();
 
-    console.log("test");
+    
     var lat = "" + $("#latitude").val();
     var long =  "" +document.getElementById("longitude").value;
     const result = await axios({
