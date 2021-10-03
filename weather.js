@@ -26,8 +26,7 @@ const generateweather = async function (event) {
     let arr = {};
 
     arr =result.data.data;
-    console.log(arr);
-    console.log(arr[0].temp)
+    
 
 
     let table = $(`
