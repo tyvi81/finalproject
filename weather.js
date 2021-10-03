@@ -2,20 +2,20 @@ const generateweather = async function (event) {
 
     event.preventDefault();
 
-    var rootImg = $("#root");
-    rootImg.empty();
+    var rootFetch = $("#root");
+    rootFetch.empty();
 
     
-    var lat = "" + $("#latitude").val();
+    var latitude = "" + $("#latitude").val();
 
-    var long =  "" +document.getElementById("longitude").value;
+    var longitude =  "" +document.getElementById("longitude").value;
 
     const result = await axios({
 
         method: 'GET',
 
         url: 'https://weatherbit-v1-mashape.p.rapidapi.com/current',
-        params: {lon: long, lat: lat, units: 'imperial', lang: 'en'},
+        params: {lon: longitude, lat: latitude, units: 'imperial', lang: 'en'},
         headers: {
           'x-rapidapi-key': '2800d53380msh8f72c6375618846p12e496jsn98db37572e60',
           'x-rapidapi-host': 'weatherbit-v1-mashape.p.rapidapi.com'
@@ -31,13 +31,12 @@ const generateweather = async function (event) {
 
 
     let table = $(`
-    <table class="table is-hoverable">
     <thead>
       <tr>
-        <th>Attribute</th>
+        <th>Categories</th>
         <th></th>
         <th></th>
-        <th>Value</th>
+        <th>Results</th>
       </tr>
     </thead>
     <tbody>
@@ -60,7 +59,7 @@ const generateweather = async function (event) {
         <td>${arr[0].weather.description}</td>
       </tr>
       <tr>
-        <td>Humidity%</td>
+        <td>Humidity Percentage</td>
         <td></td>
         <td></td>
         <td>${arr[0].rh}</td>
@@ -76,7 +75,7 @@ const generateweather = async function (event) {
     
     `);
 
-    rootImg.append(table);
+    rootFetch.append(table);
   
 }
 
