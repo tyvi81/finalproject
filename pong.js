@@ -12,7 +12,7 @@ const pongball = {
     velocityX : 5,
     velocityY : 5,
     speed : 7,
-    color : "WHITE"
+    color : "RED"
 }
 
 
@@ -22,7 +22,7 @@ const controlPaddle = {
     width : 10,
     height : 100,
     score : 0,
-    color : "WHITE"
+    color : "RED"
 }
 
 
@@ -32,7 +32,7 @@ const computerPaddle = {
     width : 10,
     height : 100,
     score : 0,
-    color : "WHITE"
+    color : "RED"
 }
 
 
@@ -41,7 +41,7 @@ const goal = {
     y : 0,
     height : 10,
     width : 2,
-    color : "WHITE"
+    color : "RED"
 }
 
 
