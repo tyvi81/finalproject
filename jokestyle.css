@@ -59,26 +59,3 @@ button{
 button:active{
     transform: scale(1.05);
 }
-html {
-    background-color: rosybrown;
-}
-
-.navbar {
-    background-color: blueviolet;
-}
-
-.navbar-item {
-    color:greenyellow;
-    font-weight: bold;
-}
-
-#btn {
-    background-color: palegreen;
-    color: black;
-    transition: .1s linear;
-}
-
-#btn:hover {
-    background-color: turquoise;
-    transition: .1s linear;
-}
