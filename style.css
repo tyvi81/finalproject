@@ -3,27 +3,11 @@
  {
    display:none;
  }
-.usernameDisp
-{
-  font-family: azo-sans-web, sans-serif;
-}
 img{
   width: 30%;
   height: auto;
   }
   
-.title_blackjack {
-  font-family: lust, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-  font-weight: 600;
-
-  font-style: normal;
-  font-size: 2.8em !important;
-  color:darkmagenta;
-}
-#blackjackContainer {
-  display: none;
-}
 
 html,
 body {
@@ -38,6 +22,7 @@ hr {
 .title {
   font-size: 2.8em !important;
 }
+s
 
 .justify-center .column {
   display: flex !important;
