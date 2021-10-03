@@ -66,6 +66,12 @@ function getMousePosition(evt){
     
     controlPaddle.y = evt.clientY - rect.top - controlPaddle.height/2;
 }
+function drawGoal(){
+    for(let j = 0; j <= canv.height; j+=15){
+        rectancle(goal.x, goal.y + j, goal.width, goal.height, goal.color);
+    }
+}
+
 
 function resetPongBall(){
     pongball.x = canv.width/2;
@@ -74,31 +80,15 @@ function resetPongBall(){
     pongball.speed = 7;
 }
 
-function drawGoal(){
-    for(let j = 0; j <= canv.height; j+=15){
-        rectancle(goal.x, goal.y + j, goal.width, goal.height, goal.color);
-    }
-}
+
 
 function text(text,x,y){
-    colorControl.fillStyle = "#FFF";
-    colorControl.font = "75px fantasy";
+    colorControl.fillStyle = "#FFZ";
+    colorControl.font = "80px fantasy";
     colorControl.fillText(text, x, y);
 }
 
-function collide(c,p){
-    p.top = p.y;
-    p.bottom = p.y + p.height;
-    p.left = p.x;
-    p.right = p.x + p.width;
-    
-    c.top = c.y - c.radius;
-    c.bottom = c.y + c.radius;
-    c.left = c.x - c.radius;
-    c.right = c.x + c.radius;
-    
-    return p.left < c.right && p.top < c.bottom && p.right > c.left && p.bottom > c.top;
-}
+
 
 
 function update(){
@@ -141,6 +131,19 @@ function update(){
     }
 }
 
+function collide(c,p){
+    p.top = p.y;
+    p.bottom = p.y + p.height;
+    p.left = p.x;
+    p.right = p.x + p.width;
+    
+    c.top = c.y - c.radius;
+    c.bottom = c.y + c.radius;
+    c.left = c.x - c.radius;
+    c.right = c.x + c.radius;
+    
+    return p.left < c.right && p.top < c.bottom && p.right > c.left && p.bottom > c.top;
+}
 
 function render(){
     
