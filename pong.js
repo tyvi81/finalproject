@@ -5,15 +5,6 @@ const colorControl = canv.getContext('2d');
 
 
 
-const pongball = {
-    x : canv.width/2,
-    y : canv.height/2,
-    radius : 10,
-    velocityX : 8,
-    velocityY : 8,
-    speed : 6,
-    color : "RED"
-}
 
 
 const controlPaddle = {
@@ -22,6 +13,16 @@ const controlPaddle = {
     width : 10,
     height : 100,
     score : 0,
+    color : "RED"
+}
+
+const pongball = {
+    x : canv.width/2,
+    y : canv.height/2,
+    radius : 10,
+    velocityX : 8,
+    velocityY : 8,
+    speed : 6,
     color : "RED"
 }
 
@@ -108,6 +109,8 @@ function update(){
     
     computerPaddle.y += ((pongball.y - (computerPaddle.y + computerPaddle.height/2)))*0.1;
     
+
+
     if(pongball.y - pongball.radius < 0 || pongball.y + pongball.radius > canv.height){
         pongball.velocityY = -pongball.velocityY;
         
