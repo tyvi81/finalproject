@@ -1,15 +1,22 @@
 const joke = document.querySelector('.joke');
-const btn = document.getElementById('btn');
-const jokeParagraph = document.querySelector('.joke p');
+const button = document.getElementById('btn');
+const jokePara = document.querySelector('.joke p');
 
-btn.addEventListener('click',getRandom);
+button.addEventListener('click',getRandom);
+
 getRandom();
+
 async function getRandom(){
-  const jokeRes = await fetch('https://icanhazdadjoke.com/', {
+
+  const jokeFetch = await fetch('https://icanhazdadjoke.com/', {
+
     headers: {
+
       'Accept': 'application/json'
+
     }
   });
-  const resJson = await jokeRes.json();
-  jokeParagraph.innerHTML = resJson.joke;
+
+  const jeff = await jokeFetch.json();
+  jokePara.innerHTML = jeff.joke;
 }
