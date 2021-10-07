@@ -12,17 +12,17 @@ const controlPaddle = {
     y : (canv.height - 100)/2, 
     width : 10,
     height : 100,
-    score : 0,
+   
     color : "RED"
 }
 
 const pongball = {
     x : canv.width/2,
     y : canv.height/2,
-    radius : 10,
+    radius : 16,
     velocityX : 8,
     velocityY : 8,
-    speed : 6,
+    speed : 11,
     color : "RED"
 }
 
@@ -39,7 +39,6 @@ const computerPaddle = {
     y : (canv.height - 100)/2, 
     width : 10,
     height : 100,
-    score : 0,
     color : "RED"
 }
 
@@ -67,6 +66,7 @@ function getMousePosition(evt){
     
     controlPaddle.y = evt.clientY - rect.top - controlPaddle.height/2;
 }
+
 function drawGoal(){
     for(let j = 0; j <= canv.height; j+=15){
         rectancle(goal.x, goal.y + j, goal.width, goal.height, goal.color);
@@ -83,11 +83,6 @@ function resetPongBall(){
 
 
 
-function text(text,x,y){
-    colorControl.fillStyle = "#FFZ";
-    colorControl.font = "80px fantasy";
-    colorControl.fillText(text, x, y);
-}
 
 
 
@@ -95,11 +90,11 @@ function text(text,x,y){
 function update(){
     
     if( pongball.x - pongball.radius < 0 ){
-        computerPaddle.score++;
+       
         
         resetPongBall();
     }else if( pongball.x + pongball.radius > canv.width){
-        controlPaddle.score++;
+        
         
         resetPongBall();
     }
@@ -134,6 +129,7 @@ function update(){
     }
 }
 
+
 function collide(c,p){
     p.top = p.y;
     p.bottom = p.y + p.height;
@@ -152,10 +148,6 @@ function render(){
     
     rectancle(0, 0, canv.width, canv.height, "#000");
     
-    text(controlPaddle.score,canv.width/4,canv.height/5);
-    
-    text(computerPaddle.score,3*canv.width/4,canv.height/5);
-    
     drawGoal();
     
     rectancle(controlPaddle.x, controlPaddle.y, controlPaddle.width, controlPaddle.height, controlPaddle.color);
@@ -170,6 +162,5 @@ function game(){
     render();
 }
 
-let frames = 45;
 
-let run = setInterval(game,1000/frames);
+let run = setInterval(game,1000/45);
