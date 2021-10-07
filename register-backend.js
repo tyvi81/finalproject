@@ -7,6 +7,7 @@ export const handlePage = function () {
 
 export const handleRegisterButton = function () {
     let $pass = $('.password-input');
+    
     let $miss = $('.missing');
     let $user = $('.username-input');
     
@@ -16,8 +17,12 @@ export const handleRegisterButton = function () {
     if ($user.val() == null || $user.val() == "") {
         $miss.append('<div>Please fill out your username');
 
+
+
     } else if ($pass.val() == null || $pass.val() == "") {
         $miss.append('<div>Please fill out your password</div>');
+
+
     } else {
         db.collection("users").doc($user.val()).get().then((snapshot) => {
             if (snapshot.exists) {
