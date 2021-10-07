@@ -16,15 +16,20 @@ const controlPaddle = {
     color : "RED"
 }
 
+
+
 const pongball = {
     x : canv.width/2,
     y : canv.height/2,
     radius : 16,
-    velocityX : 8,
     velocityY : 8,
+    velocityX : 8,
+    
     speed : 11,
     color : "RED"
 }
+
+
 
 const goal = {
     x : (canv.width - 2)/2,
@@ -33,6 +38,8 @@ const goal = {
     width : 2,
     color : "RED"
 }
+
+
 
 const computerPaddle = {
     x : canv.width - 10, 
@@ -51,6 +58,8 @@ function rectancle(x, y, w, h, color){
     colorControl.fillRect(x, y, w, h);
 }
 
+
+
 function circle(x, y, r, color){
     colorControl.fillStyle = color;
     colorControl.beginPath();
@@ -58,6 +67,9 @@ function circle(x, y, r, color){
     colorControl.closePath();
     colorControl.fill();
 }
+
+
+
 
 canv.addEventListener("mousemove", getMousePosition);
 
@@ -78,7 +90,7 @@ function resetPongBall(){
     pongball.x = canv.width/2;
     pongball.y = canv.height/2;
     pongball.velocityX = -pongball.velocityX;
-    pongball.speed = 7;
+    pongball.speed = 11;
 }
 
 
@@ -122,6 +134,7 @@ function update(){
         let angle = (Math.PI/4) * collisionPt;
         
         let movement = (pongball.x + pongball.radius < canv.width/2) ? 1 : -1;
+
         pongball.velocityX = movement * pongball.speed * Math.cos(angle);
         pongball.velocityY = pongball.speed * Math.sin(angle);
         

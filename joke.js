@@ -1,6 +1,9 @@
-const joke = document.querySelector('.joke');
-const button = document.getElementById('btn');
 const jokePara = document.querySelector('.joke p');
+
+const joke = document.querySelector('.joke');
+
+const button = document.getElementById('btn');
+
 
 button.addEventListener('click',getRandom);
 
