@@ -39,17 +39,18 @@ const generateweather = async function (event) {
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Temperature</td>
-        <td></td>
-        <td></td>
-        <td> ${arr[0].temp} </td>
-      </tr>
+      
       <tr>
         <td>TimeZone</td>
         <td></td>
         <td></td>
         <td>${arr[0].timezone}</td>
+      </tr>
+      <tr>
+        <td>Temperature</td>
+        <td></td>
+        <td></td>
+        <td> ${arr[0].temp} </td>
       </tr>
       <tr>
         <td>Weather</td>
@@ -74,12 +75,14 @@ const generateweather = async function (event) {
     
     `);
 
+
     rootFetch.append(table);
   
 }
 
 $(document).ready(function () {
 
+  
     let body = $("body");
 
     body.on("click", "#submitCoord", generateweather);

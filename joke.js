@@ -11,6 +11,8 @@ getRandom();
 
 async function getRandom(){
 
+
+  
   const jokeFetch = await fetch('https://icanhazdadjoke.com/', {
 
     headers: {
@@ -20,6 +22,11 @@ async function getRandom(){
     }
   });
 
+
+
   const jeff = await jokeFetch.json();
+
+
+
   jokePara.innerHTML = jeff.joke;
 }
