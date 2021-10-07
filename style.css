@@ -1,36 +1,19 @@
 
- #resetDeck_button, #reset_button
- {
-   display:none;
- }
-img{
-  width: 30%;
-  height: auto;
-  }
+
   
 
 html,
 body {
   height: 100%;
   font-size: 1.1em;
-  background-color:aliceblue;
+  background-color:rgb(121, 192, 255);
 }
-hr {
-  background-color: #512cd6;
-}
+
 
 .title {
   font-size: 2.8em !important;
 }
-s
 
-.justify-center .column {
-  display: flex !important;
-  justify-content: center !important;
-}
 
-.is-family-secondary {
-  font-family: "Shrikhand", cursive !important;
-  font-size: 6em !important;
-  font-weight: lighter !important;
-}
+
+
