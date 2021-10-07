@@ -1,6 +1,6 @@
 html {
-    background-image: url('http://cfbhc.com/wiki/images/3/3a/UNC_logo.jpg')
-    
+    background-image: url('http://cfbhc.com/wiki/images/3/3a/UNC_logo.jpg');
+    background-repeat: repeat;
 }
 
 .navbar {
